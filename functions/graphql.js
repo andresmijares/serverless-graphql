@@ -23,6 +23,7 @@ const validatePayload = (event) => {
 }
 
 module.exports.handler = (event, context, callback) => {
+  console.log(event.body)
   const query = validatePayload(event.body)
 
   return graphql(schema, query)
