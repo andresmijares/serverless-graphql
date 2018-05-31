@@ -3,6 +3,11 @@
 const { graphql } = require('graphql')
 const { schema } = require('../graphql/schema')
 
+/*
+  * This method just parse the payload and check if it's a valid means
+  * the user is using a GraphQL client.
+*/
+
 const validatePayload = (event) => {
   try {
     const body = JSON.parse(event)
