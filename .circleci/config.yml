@@ -24,6 +24,15 @@ jobs:
       - image: circleci/node:6.10
     working_directory: ~/tmp
     steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v2-dependencies-{{ checksum "package-lock.json" }}
+          - v2-dependencies-
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: 'Deploy to AWS'
           command: ./build.sh deploy dev  
