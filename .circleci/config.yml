@@ -33,9 +33,7 @@ workflows:
   build-master:
     jobs:
       - build:
-          context: sample-app-dev
       - deploy:
-           context: sample-app-dev
            filters:
             branches:
               only: master
