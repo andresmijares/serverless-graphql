@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:6.10
+    working_directory: ~/tmp
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v2-dependencies-{{ checksum "package-lock.json" }}
+          - v2-dependencies-
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package-lock.json" }}
+      - run: 
+          name: Run Tests
+          command: ./build.sh test
+
+  deploy:
+    docker:
+      - image: circleci/node:6.10
+    working_directory: ~/tmp
+    steps:
+      - run:
+          name: 'Deploy to AWS'
+          command: chmod +x ./build.sh deploy dev  
+
+workflows:
+  version: 2
+  build-master:
+    jobs:
+      - build:
+          context: sample-app-dev
+      - deploy:
+           context: sample-app-dev
+           filters:
+            branches:
+              only: master
+           requires:
+            - build    
