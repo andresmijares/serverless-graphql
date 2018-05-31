@@ -33,32 +33,25 @@ const writeBatchToDynamodb = co.wrap(function * ({data, db}) {
       [`${stage}_${db}`]: putReq
     }
   }
-  yield dynamodb.batchWrite(req).promise()
+  dynamodb.batchWrite(req).promise()
     .then(() => console.log('Copy Temp Orders to Dynamodb'))
-    .catch(e => {
-      throw new Error('Error writing batch to dynamo', e.message)
-    })
 })
 
 const deleteBatchFromDynamodb = co.wrap(function * ({data, db, key = 'id'}) {
-  try {
-    let putReq = data.map(i => ({
-      DeleteRequest: {
-        Key: {
-          [`${key}`]: i[key]
-        }
-      }
-    }))
-    let req = {
-      RequestItems: {
-        [`${stage}_${db}`]: putReq
+  let putReq = data.map(i => ({
+    DeleteRequest: {
+      Key: {
+        [`${key}`]: i[key]
       }
     }
-    yield dynamodb.batchWrite(req).promise()
-      .then(() => console.log('Deleted Temp Orders to Dynamodb'))
-  } catch (e) {
-    throw new Error('Error deleting batch to dynamo', e.message)
+  }))
+  let req = {
+    RequestItems: {
+      [`${stage}_${db}`]: putReq
+    }
   }
+  dynamodb.batchWrite(req).promise()
+    .then(() => console.log('Deleted Temp Orders to Dynamodb'))
 })
 
 module.exports = {

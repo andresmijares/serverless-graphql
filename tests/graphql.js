@@ -30,16 +30,24 @@ let numberOfOrders = Math.floor(Math.random() * 10) + 1
 
 describe('when we hit the graphql POST / endpoint', (co.wrap(function * () {
   before(co.wrap(function * () {
-    users = getUsers()
-    user = users[0]
-    orders = getOrders(user.email, numberOfOrders)
-    yield writeBatchToDynamodb({data: users, db: 'users'})
-    yield writeBatchToDynamodb({data: orders, db: 'orders'})
+    try {
+      users = getUsers()
+      user = users[0]
+      orders = getOrders(user.email, numberOfOrders)
+      yield writeBatchToDynamodb({data: users, db: 'users'})
+      yield writeBatchToDynamodb({data: orders, db: 'orders'})
+    } catch (e) {
+      console.log(e.message)
+    }
   }))
 
   after(co.wrap(function * () {
-    yield deleteBatchFromDynamodb({data: users, db: 'users', key: 'email'})
-    yield deleteBatchFromDynamodb({data: orders, db: 'orders', key: 'id'})
+    try {
+      yield deleteBatchFromDynamodb({data: users, db: 'users', key: 'email'})
+      yield deleteBatchFromDynamodb({data: orders, db: 'orders', key: 'id'})
+    } catch (e) {
+      console.log(e.message)
+    }
   }))
 
   it('should return a proper payload', co.wrap(function * () {
