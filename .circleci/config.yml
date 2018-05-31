@@ -26,7 +26,7 @@ jobs:
     steps:
       - run:
           name: 'Deploy to AWS'
-          command: chmod +x ./build.sh deploy dev  
+          command: /build.sh deploy dev  
 
 workflows:
   version: 2
