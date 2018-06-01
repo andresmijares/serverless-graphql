@@ -5,9 +5,10 @@
 ## Requirements:
 - AWS account with proper permissions 
 
-## This is part 1 of 3 video series
-- [ ] TBD Part 2: Testing Serverless Graphql serverless enpoint
-- [ ] TBD Part 3: Creating a CI Pipeline with circleci to deploy production serverless applications
+## This is 3 parts video series
+- [Serverless GraphQL (part 1 of 3) Getting started](https://youtu.be/xMQEfb9mJNw)
+- [Serverless GraphQL (part 2 of 3) Testing](https://youtu.be/vbWQYXA5fWE)
+- TBD [Serverless GraphQL (part 3 of 3) CI pipeline]
 
 ## Resources:
 * Repo: https://github.com/andresmijares/serverless-graphql
