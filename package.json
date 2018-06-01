@@ -4,6 +4,7 @@
   "description": "graphql serverless proof of concept",
   "main": "index.js",
   "scripts": {
+    "lint": "standard",
     "test": "env TEST_DB=dev TEST_ROOT=https://8pbt7un0k8.execute-api.us-east-1.amazonaws.com/dev ./node_modules/.bin/mocha tests/ --reporter spec --timeout 15000 --retries 3"
   },
   "keywords": [],

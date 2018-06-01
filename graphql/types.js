@@ -21,7 +21,7 @@ const Order = new GraphQLObjectType({
 const User = new GraphQLObjectType({
   name: 'User',
   fields: {
-    id: { type: new GraphQLNonNull(GraphQLID) },
+    id: { type: GraphQLString },
     email: { type: GraphQLString },
     name: { type: GraphQLString },
     lastName: { type: GraphQLString },

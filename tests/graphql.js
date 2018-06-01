@@ -1,4 +1,5 @@
 'use strict'
+/* global before, after, describe, it */
 
 const co = require('co')
 const expect = require('chai').expect
