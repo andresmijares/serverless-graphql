@@ -6,7 +6,7 @@
 - AWS account with proper permissions 
 
 ## This is part 1 of 3 video series
-- [ ] TBD Part 2: Testing Serverless Graphql serverless enpoint
+- [TBD Part 2: Testing Serverless Graphql serverless enpoint](https://youtu.be/vbWQYXA5fWE)
 - [ ] TBD Part 3: Creating a CI Pipeline with circleci to deploy production serverless applications
 
 ## Resources:
