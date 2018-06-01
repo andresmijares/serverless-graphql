@@ -6,16 +6,9 @@
 - AWS account with proper permissions 
 
 ## This is part 1 of 3 video series
-- [x] TBD Part 2: Testing Serverless Graphql serverless enpoint
-- [x] TBD Part 3: Creating a CI Pipeline with circleci to deploy production serverless applications
-
-## Resources:
-* Repo: https://github.com/andresmijares/serverless-graphql
-
-* GraphiQL | Apps | Electron:
-   https://electronjs.org/apps/graphiql
-
-* Dynamodb sdk: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
+- [Getting started with Graphql and Serverless](https://youtu.be/xMQEfb9mJNw)
+- [Testing Serverless Graphql enpoint](https://youtu.be/vbWQYXA5fWE)
+- [Creating a CI Pipeline with circleci to deploy production serverless applications](https://youtu.be/V1vp29jJQRg)
 
 ## Disclaimer
 Please be aware this if my first screencast therefore, it sucks! I promise to get better :)
